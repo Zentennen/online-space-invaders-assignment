@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\client",
+    "\\client\\include",
+    "\\client\\source",
+    "\\server",
+    "\\server\\include",
+    "\\server\\source"
+  ],
+  "SelectedNode": "\\server\\source\\server_app.cc",
+  "PreviewInSolutionExplorer": false
+}

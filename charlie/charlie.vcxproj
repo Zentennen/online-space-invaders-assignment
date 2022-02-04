@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{8d431107-0638-40ba-b12c-db64b6f61856}</ProjectGuid>
+    <RootNamespace>network</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>charlie</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\build\</OutDir>
+    <IntDir>..\build\_intermediate\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName).$(Configuration.toLower())</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\build\</OutDir>
+    <IntDir>..\build\_intermediate\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName).$(Configuration.toLower())</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>include\Charlie\;include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DisableSpecificWarnings>4100;4189;4505;</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DisableSpecificWarnings>4100;4189;4505;</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Input.cpp" />
+    <ClCompile Include="source\Lobby.cpp" />
+    <ClCompile Include="source\DataOverlay.cpp" />
+    <ClCompile Include="source\ServerFinder.cpp" />
+    <ClCompile Include="source\NetEventManager.cpp" />
+    <ClCompile Include="source\Projectile.cpp" />
+    <ClCompile Include="source\Inputinator.cpp" />
+    <ClCompile Include="source\AppState.cpp" />
+    <ClCompile Include="source\Game.cpp" />
+    <ClCompile Include="source\Event.cpp" />
+    <ClCompile Include="source\Entity.cpp" />
+    <ClCompile Include="source\Interpolator.cpp" />
+    <ClCompile Include="source\Charlie\charlie_application.cc" />
+    <ClCompile Include="source\Charlie\charlie_gameplay.cc" />
+    <ClCompile Include="source\Charlie\charlie_messages.cc" />
+    <ClCompile Include="source\Charlie\charlie_system.cc" />
+    <ClCompile Include="source\Charlie\charlie_network.cc" />
+    <ClCompile Include="source\Charlie\charlie_protocol.cc" />
+    <ClCompile Include="source\Config.cpp" />
+    <ClCompile Include="source\winmain.cc" />
+    <ClCompile Include="source\Spaceship.cpp" />
+    <ClCompile Include="source\SpaceInvaders.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\DataOverlay.h" />
+    <ClInclude Include="include\NetEventManager.h" />
+    <ClInclude Include="include\AppState.h" />
+    <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\Config.h" />
+    <ClInclude Include="include\Event.h" />
+    <ClInclude Include="include\Entity.h" />
+    <ClInclude Include="include\Charlie\charlie.hpp" />
+    <ClInclude Include="include\Charlie\charlie_application.hpp" />
+    <ClInclude Include="include\Charlie\charlie_gameplay.hpp" />
+    <ClInclude Include="include\Charlie\charlie_messages.hpp" />
+    <ClInclude Include="include\Charlie\charlie_network.hpp" />
+    <ClInclude Include="include\Input.h" />
+    <ClInclude Include="include\Interpolator.h" />
+    <ClInclude Include="include\Charlie\charlie_protocol.hpp" />
+    <ClInclude Include="include\Spaceship.h" />
+    <ClInclude Include="include\SpaceInvaders.h" />
+    <ClInclude Include="include\Inputinator.h" />
+    <ClInclude Include="include\Projectile.h" />
+    <ClInclude Include="include\ServerFinder.h" />
+    <ClInclude Include="include\StaticQueue.h" />
+    <ClInclude Include="include\Lobby.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
